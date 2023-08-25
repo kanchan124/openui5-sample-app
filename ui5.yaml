@@ -1,10 +1,10 @@
-specVersion: '3.0'
+specVersion: '2.0'
 metadata:
   name: openui5-sample-app
 type: application
 framework:
   name: OpenUI5
-  version: "1.117.0"
+  version: "1.116.0"
   libraries:
     - name: sap.f
     - name: sap.m
@@ -14,3 +14,21 @@ server:
   customMiddleware:
     - name: "@ui5/middleware-code-coverage"
       afterMiddleware: compression
+---
+specVersion: "2.5"
+kind: extension
+type: project-shim
+metadata:
+  name: ui5-ts-shim-showcase.thirdparty
+shims:
+  configurations:
+    "@coveo/headless":
+      specVersion: "2.5"
+      type: module
+      metadata:
+        name: "@coveo/headless"
+      resources:
+        configuration:
+          paths:
+            "/resources/@coveo/headless/": ""
+   
